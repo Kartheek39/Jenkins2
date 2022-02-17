@@ -24,11 +24,12 @@ folder('CI-Pipelines') {
     description('Folder for project')
 }
 
-def cars = ["BMW", "Mercedes Benz", "Volvo", "Chevrolet", "Ford"]
+def component = ["cart", "catalogue", "user", "payment", "shipping"]
 
-for (int i = 0; i < cars.size(); i++) {
-//    println cars[i]
-    pipelineJob('CI-Pipelines/cars[i]') {
+def count= (component.size() -1 )
+
+for(int i in 0..count) {
+    pipelineJob('CI-Pipelines/${component[i]}') {
         configure { flowdefinition ->
             flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
                 'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
