@@ -28,7 +28,7 @@ def cars = ["BMW", "Mercedes Benz", "Volvo", "Chevrolet", "Ford"]
 
 for (int i = 0; i < cars.size(); i++) {
 //    println cars[i]
-    pipelineJob('CI-Pipelines/{cars[i]}') {
+    pipelineJob('CI-Pipelines/cars[i]') {
         configure { flowdefinition ->
             flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
                 'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
