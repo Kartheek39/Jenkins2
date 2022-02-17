@@ -44,3 +44,15 @@ pipelineJob('CI-Pipelines/frontend') {
     }
   }
 }
+
+
+//pipeline{
+//  agent any
+//  stages{
+//    stage{
+//      steps{
+//        echo "hello world"
+//      }
+//    }
+//  }
+//}
