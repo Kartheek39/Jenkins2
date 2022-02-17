@@ -24,55 +24,30 @@ folder('CI-Pipelines') {
     description('Folder for project')
 }
 
-//def component = ["cart", "catalogue", "user", "payment", "shipping", "frontend"]
-//
-//for (int i = 0; i < component.size(); i++) {
-////    println component[i]
-//    pipelineJob('CI-Pipelines/${component[i]}') {
-//        configure { flowdefinition ->
-//            flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
-//                'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
-//                    'userRemoteConfigs' {
-//                        'hudson.plugins.git.UserRemoteConfig' {
-//                            'url'('hhttps://github.com/Kartheek39/Jenkins2.git')
-//                        }
-//                    }
-//                    'branches' {
-//                        'hudson.plugins.git.BranchSpec' {
-//                            'name'('*/main')
-//                        }
-//                    }
-//                }
-//                'scriptPath'('Jenkinsfile')
-//                'lightweight'(true)
-//            }
-//        }
-//    }
-//}
-
 def component = ["cart", "catalogue", "user", "payment", "shipping", "frontend"]
 
 def count= (component.size() -1 )
 
 for (int i in 0..count) {
 //    println component[i]
-    pipelineJob('CI-Pipelines/${component[i]}') {
-        configure { flowdefinition ->
-            flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
-                'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
-                    'userRemoteConfigs' {
-                        'hudson.plugins.git.UserRemoteConfig' {
-                            'url'('hhttps://github.com/Kartheek39/Jenkins2.git')
+        pipelineJob('CI-Pipelines/${component[i]}') {
+            configure { flowdefinition ->
+                flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
+                    'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
+                        'userRemoteConfigs' {
+                            'hudson.plugins.git.UserRemoteConfig' {
+                                'url'('hhttps://github.com/Kartheek39/Jenkins2.git')
+                            }
+                        }
+                        'branches' {
+                            'hudson.plugins.git.BranchSpec' {
+                                'name'('*/main')
+                            }
                         }
                     }
-                    'branches' {
-                        'hudson.plugins.git.BranchSpec' {
-                            'name'('*/main')
-                        }
-                    }
+                    'scriptPath'('Jenkinsfile')
+                    'lightweight'(true)
                 }
-                'scriptPath'('Jenkinsfile')
-                'lightweight'(true)
             }
         }
     }
