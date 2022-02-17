@@ -29,7 +29,7 @@ def component = ["cart", "catalogue", "user", "payment", "shipping"]
 def count= (component.size() -1 )
 
 for(int i in 0..count) {
-    pipelineJob('CI-Pipelines/${component[i]}') {
+    pipelineJob("CI-Pipelines/${component[i]}") {
         configure { flowdefinition ->
             flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
                 'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
