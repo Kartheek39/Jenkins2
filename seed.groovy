@@ -24,7 +24,11 @@ folder('CI-Pipelines') {
     description('Folder for project')
 }
 
-pipelineJob('CI-Pipelines/frontend') {
+def component = ["cart", "catalogue", "user", "payment", "shipping", "frontend"]
+
+for (int i = 0; i < component.size(); i++) {
+  println component[i]
+ pipelineJob('CI-Pipelines/component[i]') {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
@@ -43,16 +47,7 @@ pipelineJob('CI-Pipelines/frontend') {
       'lightweight'(true)
     }
   }
+ }
 }
 
 
-//pipeline{
-//  agent any
-//  stages{
-//    stage{
-//      steps{
-//        echo "hello world"
-//      }
-//    }
-//  }
-//}
