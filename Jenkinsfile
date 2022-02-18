@@ -1,21 +1,18 @@
-// pipeline{
-//   agent any
-//   stages{
-//     stage(one){
-//       steps{
-//         echo "hello world"
-//       }
-//     }
-//   }
-// }
-
 pipeline{
     agent any
     stages{
-      stage(seq1){
-         steps{
-           echo "hello pipeline started"
-         }
-      }
+        stage('code checkout'){
+            steps{
+                echo "code checkout success"
+            }
+        }
+        stage('Run Build'){
+            steps{
+                RunBuild()
+            }
+        }
+        stage('Deployment'){
+            Deployment()
+        }
     }
 }
