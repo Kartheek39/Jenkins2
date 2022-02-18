@@ -12,7 +12,9 @@ pipeline{
             }
         }
         stage('Deployment'){
-            Deployment()
+            steps{
+                Deployment()
+            }
         }
     }
 }
