@@ -15,3 +15,17 @@
       command: cd /opt
     - name: "Download the package"
       command: curl -s -o sonarqube-9.3.0.51899.zip "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.3.0.51899.zip"
+    - name: "Unzip the file"
+      command: unzip sonarqube-9.3.0.51899.zip
+    - name: "Remove Zip File"
+      command: rm -f sonarqube-9.3.0.51899.zip
+    - name: "Change file name to sonarqube"
+      command: mv sonarqube-9.3.0.51899 sonarqube
+    - name: "Change user to for the sonarqube"
+      command: chown sonar:sonar sonarqube -R
+    - name: "Reload the service"
+      command: systemctl daemon-reload
+    - name: "Enable the service"
+      command: systemctl enable sonarqube
+    - name: "Start the service"
+      command: systemctl start sonarqube
