@@ -23,6 +23,8 @@
       command: mv sonarqube-9.3.0.51899 sonarqube
     - name: "Change user to for the sonarqube"
       command: chown sonar:sonar sonarqube -R
+    - name: "Create sonarqube service"
+      command: curl -s https://raw.githubusercontent.com/linuxautomations/labautomation/master/tools/sonarqube/sonar.service >/etc/systemd/system/sonarqube.service
     - name: "Reload the service"
       command: systemctl daemon-reload
     - name: "Enable the service"
