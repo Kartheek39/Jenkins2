@@ -3,7 +3,7 @@
     - localhost
   #hosts: all
   tasks:
-    - name: Print HelloWorld
+    - name: sample file
       file:
-        path: /home/centos/Jenkins2
+        path: /home/centos/Jenkins2/sample.txt
         state: touch
