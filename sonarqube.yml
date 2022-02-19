@@ -14,5 +14,7 @@
     - name: "go to the path"
       lineinfile:
         path: /opt
+        line: localhost
+        state: present
     - name: "Download the package"
       command: curl -s -o sonarqube-9.3.0.51899.zip "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.3.0.51899.zip"
