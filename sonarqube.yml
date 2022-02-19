@@ -3,7 +3,11 @@
     - localhost
   #hosts: all
   tasks:
-    - name: sample file
-      file:
-        path: /home/centos/Jenkins2/sample.txt
-        state: touch
+    - name: "Create SonarQube system user"
+      user:
+        name: "sonar"
+#        group: "{{ sonar_group }}"
+        createhome: no
+#        shell: "/sbin/nologin"
+        comment: "SonarQube System user"
+        state: present
