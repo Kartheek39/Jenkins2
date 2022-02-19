@@ -4,5 +4,6 @@
   #hosts: all
   tasks:
     - name: Print HelloWorld
-      debug:
-        msg: Hello World
+      file:
+        path: /home/centos/Jenkins2
+        state: touch
