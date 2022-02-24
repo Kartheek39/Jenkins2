@@ -1,0 +1,45 @@
+# input request type for create api
+input CartCreationRequest{
+    #   Name of the cart ie: My MS Office Purchase
+    name: String
+    #   Type of the cart ie: SoftGood
+    type: String
+    #   Channel of the cart ie: MarketPlace
+    channel: String!
+}
+
+# input request type for update api
+input UpdateCartRequest{
+    #   Name of the cart ie: My MS Office Purchase
+    name: String
+    #   Type of the cart ie: SoftGood
+    type: String
+    #   Channel of the cart ie: MarketPlace
+    channel: String!
+}
+
+# request body for adding an item
+input ItemCreationRequest{
+    # ProductID of cart item
+    productId : String!
+    # Quantity of cart item
+    quantity: Long!
+    # SKU of cart item
+    sku : String!
+    # Name of cart item
+    name: String!
+    # Sales Price of cart item
+    salesPrice: BigDecimal!
+}
+
+#   input type object for update quantity of an item api
+input QuantityUpdateRequest{
+#   quantity (mandatory) to update an item in cart
+    quantity: BigDecimal
+}
+
+# input request type for checkoutAttribute api
+input UpdateCartAttributeRequest{
+    checkoutRequired : Boolean
+    status: String
+}

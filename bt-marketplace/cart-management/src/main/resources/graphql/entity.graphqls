@@ -1,0 +1,41 @@
+# CartEntity document
+type CartEntity{
+    id : ID!
+    type: String!
+    status: String
+    attributes: CartAttributes
+    cartItems: [CartItem]
+    cartPricing: CartPricing
+    cartAudit: CartAudit
+}
+
+type CartAudit{
+    createdBy: String
+#    TODO , data time fields are to be added
+}
+
+type CartItem{
+    cartItemId : Long
+    productId: String
+    quantity: BigDecimal
+    sku: String
+    name: String
+    salesPrice: BigDecimal
+    offerPrice: BigDecimal
+    tax: BigDecimal
+    subTotal: BigDecimal
+    total: BigDecimal
+}
+
+type CartPricing {
+    totalTax: BigDecimal
+    subTotal: BigDecimal
+    total: BigDecimal
+}
+
+type CartAttributes{
+    userId: String
+    name: String
+    channel: String
+    checkoutRequired: Boolean
+}

@@ -1,0 +1,24 @@
+#   generic schema for API's responses with status as SUCCESS or FAILURE
+type UpdateResponse{
+    status : String
+}
+
+#   response type object for create and update cart api
+type CartCreationResponse{
+    cartId: String
+}
+
+#   response type object for item creation api
+type ItemCreationResponse{
+    cartItemId: Long
+}
+
+# response schema for get cart api
+type GetCartResponse{
+    id : ID!
+    status: String
+    attributes: CartAttributes
+    type: String!
+    cartItems: [CartItem]
+    cartPricing: CartPricing
+}

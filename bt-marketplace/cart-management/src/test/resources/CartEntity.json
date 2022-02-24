@@ -1,0 +1,26 @@
+{
+    "id":"61d5c8dbdabc5865979f8285",
+    "status": "PENDING",
+    "type": "digital",
+    "attributes": {
+        "userId": "Dhananjay2212",
+        "name": "shopp",
+        "channel": "Marketplace"
+    },
+    "cartItems": [
+        {
+            "cartItemId":"3928311",
+            "quantity": 2,
+            "sku": "SKU",
+            "name": "DummySKU",
+            "salesPrice": 103,
+            "offerPrice": 0,
+            "subTotal": 0,
+            "total": 0
+        }
+    ],
+    "cartPricing": {
+        "subTotal": 2366,
+        "total": 2366
+    }
+}

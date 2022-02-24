@@ -1,0 +1,22 @@
+type Mutation{
+
+    # Creates an empty cart with Cart Name, Cart Type and Cart Channel. returns Cart Id of the cart
+    createCart(cartCreationRequest: CartCreationRequest!) : CartCreationResponse
+    # Updates the cart with new Cart Name, Cart Type as provided in request. returns Cart Id of the cart
+    updateCart(updateCartRequest: UpdateCartRequest!, cartId: String!) : CartCreationResponse
+    # Deletes the existing cart, returns Success/ Failure status
+    deleteCart(cartId: String!): UpdateResponse
+    # Adds an Item to existing cart, return newly created item .
+    # If same SKU is provided in different item requests, only quantity will be updated in existing item
+    addCartItem(itemCreationRequest: ItemCreationRequest!, cartId: String!): ItemCreationResponse
+    # update cart item with new item in the cart by taking cartId, ItemId as paramters
+    updateCartItem(itemCreationRequest: ItemCreationRequest!, cartId: String!, cartItemId: String!): ItemCreationResponse
+    # updates the quantity of existing item in the cart
+    updateCartItemQuantity(quantityUpdateRequest: QuantityUpdateRequest!, cartId: String!, cartItemId: String!): UpdateResponse
+    # deletes the item in the cart by taking cartId and cartItemId as parameters in the existing cart
+    deleteCartItem(cartId: String!, cartItemId: String!) : UpdateResponse
+    # deleted all cartItems in the existing cart by taking cartId as parameter
+    deleteCartItems(cartId: String!) : UpdateResponse
+    #checkoutAttribute api
+    updateCartAttribute(updateCartAttributeRequest: UpdateCartAttributeRequest, cartId: String!) : UpdateResponse
+}

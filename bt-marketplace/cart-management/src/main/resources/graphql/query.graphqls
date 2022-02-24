@@ -1,0 +1,4 @@
+type Query {
+    # get cart api to query cart data and perform cartPricing
+    getCart(cartId: ID!): GetCartResponse
+}
