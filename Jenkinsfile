@@ -8,19 +8,19 @@ pipeline {
             }
         }
 
-        stage('move to inside the path') {
+        stage('build') {
             steps {
-                 sh '''
-                    cd '/var/lib/jenkins/workspace/2nd_job_pipe'
-                '''
+                   dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
+                   sh 'mvn -B -DskipTests clean package'
+                   }
             }
         }
 
-        stage('code build'){
+        /*stage('code build'){
             steps{
                 sh 'mvn -B -DskipTests clean package'
             }
-        }
+        }*/
         
     }
 
