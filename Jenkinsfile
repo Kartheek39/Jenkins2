@@ -15,8 +15,11 @@ pipeline {
         stage('build') {
             steps {
                    dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
-                   sh 'mvn clean'
-                   }
+                    withMaven{
+                        sh 'mvn clean'
+                    }
+                   
+                }
             }
         }
 
