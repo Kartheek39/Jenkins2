@@ -10,8 +10,10 @@ pipeline {
 
         stage('code build') {
             steps {
-                cd '/var/lib/jenkins/workspace/2nd_job_pipe'
-                //sh 'mvn clean install'
+                 sh '''
+                    cd '/var/lib/jenkins/workspace/2nd_job_pipe'
+                    sh 'mvn clean install'
+                '''
             }
         }
     }
