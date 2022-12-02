@@ -12,7 +12,7 @@ pipeline {
             steps {
                  sh '''
                     cd '/var/lib/jenkins/workspace/2nd_job_pipe'
-                    'mvn clean install'
+                    'mvn install'
                 '''
             }
         }
