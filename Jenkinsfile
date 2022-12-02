@@ -18,7 +18,7 @@ pipeline {
 
         stage('code build'){
             steps{
-                mvn clean install
+                'mvn clean install'
             }
         }
         
