@@ -8,14 +8,20 @@ pipeline {
             }
         }
 
-        stage('code build') {
+        stage('move to inside the path') {
             steps {
                  sh '''
                     cd '/var/lib/jenkins/workspace/2nd_job_pipe'
-                    mvn install
                 '''
             }
         }
+
+        stage('code build'){
+            steps{
+                mvn clean install
+            }
+        }
+        
     }
 
 }
