@@ -1,3 +1,6 @@
+
+
+
 //pipeline{
 //    agent any
 //    stages{
@@ -19,10 +22,10 @@
 //    }
 //}
 
-@Library('Testlibraries') _
+/*@Library('Testlibraries') _
 
 log.info 'Starting'
-log.warning 'Nothing to do!'
+log.warning 'Nothing to do!'*/
 	
 
 		
