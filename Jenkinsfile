@@ -1,10 +1,8 @@
 pipeline {
     agent any
-
-    tools {
-        maven 'maven_3.8.6'
+    environment {
+        PATH = "/home/ec2-user/jenkins/maven/maven/bin:$PATH"
     }
-
     stages{
         stage('code checkout') {
             steps {
@@ -15,10 +13,7 @@ pipeline {
         stage('build') {
             steps {
                    dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
-                    withMaven{
-                        sh 'mvn clean'
-                    }
-                   
+                   sh 'mvn clean'
                 }
             }
         }
