@@ -10,7 +10,7 @@ pipeline {
 
         stage('code build') {
             steps {
-                echo "code build successfull"
+                mvn clean install
             }
         }
     }
