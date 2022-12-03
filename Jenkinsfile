@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "/home/ec2-user/jenkins/maven/maven/bin:$PATH"
+        PATH = "/opt/maven/bin:$PATH"
     }
     stages{
         stage('code checkout') {
