@@ -19,15 +19,10 @@ pipeline {
         }
 
         stage('Deploy') {
-            deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://174.129.175.179:8080/')], contextPath: 'JavaWebapp', war: '**/*.war'
-        }
-
-        /*stage('code build'){
-            steps{
-                sh 'mvn -B -DskipTests clean package'
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://174.129.175.179:8080/')], contextPath: 'JavaWebapp', war: '**/*.war'
             }
-        }*/
-        
+        }
     }
 
 }
