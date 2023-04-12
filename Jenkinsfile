@@ -1,34 +1,8 @@
-// pipeline {
-//     agent any
-//     environment {
-//         PATH = "/opt/maven/bin:$PATH"
-//     }
-//     stages{
-//         stage('code checkout') {
-//             steps {
-//                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Kartheek39/hello-world.git']]])
-//             }
-//         }
-
-//         stage('build') {
-//             steps {
-//                    dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
-//                    sh 'mvn clean package'
-//                 }
-//             }
-//         }
-
-//         stage('Deploy') {
-//             steps {
-//                 deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://174.129.175.179:8080/')], contextPath: 'JavaWebapp', war: '**/*.war'
-//             }
-//         }
-//     }
-
-// }
-
 pipeline {
     agent any
+    environment {
+        version = "1.1.0"
+    }
 
     stages {
         stage('code checkout') {
@@ -38,7 +12,7 @@ pipeline {
         }
         stage('code build') {
             steps {
-                echo "build the code is done"
+                echo "build the code with the version=$version"
             }
         } 
     }
@@ -74,3 +48,31 @@ log.warning 'Nothing to do!'*/
 
 		
 
+// pipeline {
+//     agent any
+//     environment {
+//         PATH = "/opt/maven/bin:$PATH"
+//     }
+//     stages{
+//         stage('code checkout') {
+//             steps {
+//                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Kartheek39/hello-world.git']]])
+//             }
+//         }
+
+//         stage('build') {
+//             steps {
+//                    dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
+//                    sh 'mvn clean package'
+//                 }
+//             }
+//         }
+
+//         stage('Deploy') {
+//             steps {
+//                 deploy adapters: [tomcat9(credentialsId: 'tomcat_cred', path: '', url: 'http://174.129.175.179:8080/')], contextPath: 'JavaWebapp', war: '**/*.war'
+//             }
+//         }
+//     }
+
+// }
