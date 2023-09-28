@@ -64,7 +64,7 @@ pipeline {
             steps {
                    dir("/var/lib/jenkins/workspace/helloworld_pipe") {
                    sh 'mvn install package'
-                   echo "all done well"
+                   echo "all done well till end"
                 }
             }
         }
