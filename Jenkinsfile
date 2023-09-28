@@ -1,22 +1,22 @@
-pipeline {
-    agent any
-    environment {
-        version = "1.1.0"
-    }
+// pipeline {
+//     agent any
+//     environment {
+//         version = "1.1.0"
+//     }
 
-    stages {
-        stage('code checkout') {
-            steps {
-                echo "checkout the code is done by new edit"
-            }
-        }
-        stage('code build') {
-            steps {
-                echo "build the code with the version=$version"
-            }
-        } 
-    }
-}
+//     stages {
+//         stage('code checkout') {
+//             steps {
+//                 echo "checkout the code is done by new edit"
+//             }
+//         }
+//         stage('code build') {
+//             steps {
+//                 echo "build the code with the version=$version"
+//             }
+//         } 
+//     }
+// }
 
 
 //pipeline{
@@ -48,25 +48,25 @@ log.warning 'Nothing to do!'*/
 
 		
 
-// pipeline {
-//     agent any
-//     environment {
-//         PATH = "/opt/maven/bin:$PATH"
-//     }
-//     stages{
-//         stage('code checkout') {
-//             steps {
-//                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Kartheek39/hello-world.git']]])
-//             }
-//         }
+pipeline {
+    agent any
+    environment {
+        PATH = "/opt/maven/bin:$PATH"
+    }
+    stages{
+        stage('code checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Kartheek39/hello-world.git']]])
+            }
+        }
 
-//         stage('build') {
-//             steps {
-//                    dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
-//                    sh 'mvn clean package'
-//                 }
-//             }
-//         }
+        stage('build') {
+            steps {
+                   dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
+                   sh 'mvn clean package'
+                }
+            }
+        }
 
 //         stage('Deploy') {
 //             steps {
