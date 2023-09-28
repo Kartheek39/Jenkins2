@@ -62,7 +62,7 @@ pipeline {
 
         stage('build') {
             steps {
-                   dir("/var/lib/jenkins/workspace/2nd_job_pipe") {
+                   dir("/var/lib/jenkins/workspace/helloworld_pipe") {
                    sh 'mvn install package'
                 }
             }
