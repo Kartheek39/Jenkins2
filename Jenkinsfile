@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('code checkout') {
             steps {
-                echo "checkout the code is done"
+                echo "checkout the code is done by new edit"
             }
         }
         stage('code build') {
